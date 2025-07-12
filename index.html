@@ -140,13 +140,31 @@
                 </ul>
                 <div class="carousel-container" id="main-carousel">
                     <div class="carousel-slide">
+                        <img src="images/20230726_163119.jpeg" alt="Imagen 1">
+                        <img src="images/20230727_152904.jpeg" alt="Imagen 2">
+                        <img src="images/66bfc0fd-d6ed-46a3-951e-27b6b0454359.jpg" alt="Imagen 3">
+                        <img src="images/78242e61-6413-400c-8334-18e6f5200777.jpg" alt="Imagen 4">
+                        <img src="images/964bf54f-7e60-481c-8173-5629ab773557.jpg" alt="Imagen 5">
                         <img src="images/IMG_0011.JPG" alt="El Honesto Mike 1">
                         <img src="images/IMG_0220.jpg" alt="El Honesto Mike 2">
                         <img src="images/IMG_0228.JPG" alt="Franklin Burgers 1">
                         <img src="images/IMG_0234.JPG" alt="Franklin Burgers 2">
+                        <img src="images/IMG_0235.JPG" alt="Imagen 6">
                     </div>
-                    <button class="prev" onclick="moveSlide(this, -1)">&#10094;</button>
-                    <button class="next" onclick="moveSlide(this, 1)">&#10095;</button>
+                    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="images/20230726_163119.jpeg" onclick="currentSlide(1)" alt="Imagen 1">
+                    <img class="thumbnail" src="images/20230727_152904.jpeg" onclick="currentSlide(2)" alt="Imagen 2">
+                    <img class="thumbnail" src="images/66bfc0fd-d6ed-46a3-951e-27b6b0454359.jpg" onclick="currentSlide(3)" alt="Imagen 3">
+                    <img class="thumbnail" src="images/78242e61-6413-400c-8334-18e6f5200777.jpg" onclick="currentSlide(4)" alt="Imagen 4">
+                    <img class="thumbnail" src="images/964bf54f-7e60-481c-8173-5629ab773557.jpg" onclick="currentSlide(5)" alt="Imagen 5">
+                    <img class="thumbnail" src="images/IMG_0011.JPG" onclick="currentSlide(6)" alt="El Honesto Mike 1">
+                    <img class="thumbnail" src="images/IMG_0220.jpg" onclick="currentSlide(7)" alt="El Honesto Mike 2">
+                    <img class="thumbnail" src="images/IMG_0228.JPG" onclick="currentSlide(8)" alt="Franklin Burgers 1">
+                    <img class="thumbnail" src="images/IMG_0234.JPG" onclick="currentSlide(9)" alt="Franklin Burgers 2">
+                    <img class="thumbnail" src="images/IMG_0235.JPG" onclick="currentSlide(10)" alt="Imagen 6">
                 </div>
             </section>
 
@@ -171,105 +189,56 @@
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tabbuttons;
-
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-
             tabbuttons = document.getElementsByClassName("tab-button");
             for (i = 0; i < tabbuttons.length; i++) {
                 tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
             }
-
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
 
-        // Mostrar la primera pestaña por defecto al cargar la página
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".tab-button").click();
         });
-    </script>
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
 
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
+        let slideIndex = 1;
+        let slideInterval;
 
-            tabbuttons = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
-            }
+        showSlides(slideIndex);
 
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+        function plusSlides(n) {
+            clearInterval(slideInterval);
+            showSlides(slideIndex += n);
+            slideInterval = setInterval(() => plusSlides(1), 5000);
         }
 
-        // Mostrar la primera pestaña por defecto al cargar la página
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector(".tab-button").click();
-        });
+        function currentSlide(n) {
+            clearInterval(slideInterval);
+            showSlides(slideIndex = n);
+            slideInterval = setInterval(() => plusSlides(1), 5000);
+        }
 
-        // Carousel functionality
-        let slideIndex = {}; // Stores current slide index for each carousel
-        let slideInterval = {}; // Stores interval for each carousel
-
-        function showSlides(carouselElement, n) {
-            let slides = carouselElement.getElementsByTagName("img");
-            let carouselContainer = carouselElement.closest(".carousel-container");
-            let carouselId = carouselContainer.id; // Get unique ID for carousel
-
-            if (!(carouselId in slideIndex)) {
-                slideIndex[carouselId] = 0; // Initialize if not present
-            }
-
-            if (n !== undefined) { // Only update index if n is provided (manual navigation)
-                slideIndex[carouselId] += n;
-            }
-
-            if (slideIndex[carouselId] >= slides.length) {
-                slideIndex[carouselId] = 0;
-            }
-            if (slideIndex[carouselId] < 0) {
-                slideIndex[carouselId] = slides.length - 1;
-            }
-
-            for (let i = 0; i < slides.length; i++) {
+        function showSlides(n) {
+            let i;
+            let slides = document.querySelectorAll(".carousel-slide img");
+            let thumbnails = document.getElementsByClassName("thumbnail");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            slides[slideIndex[carouselId]].style.display = "block";
+            for (i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].className = thumbnails[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            thumbnails[slideIndex-1].className += " active";
         }
 
-        function moveSlide(buttonElement, n) {
-            let carouselContainer = buttonElement.closest(".carousel-container");
-            let carouselSlide = carouselContainer.querySelector(".carousel-slide");
-            let carouselId = carouselContainer.id;
-
-            // Clear existing interval to prevent conflicts with manual navigation
-            clearInterval(slideInterval[carouselId]);
-
-            showSlides(carouselSlide, n);
-
-            // Restart auto-slide after manual navigation
-            slideInterval[carouselId] = setInterval(() => showSlides(carouselSlide, 1), 3000); // Auto-slide every 3 seconds
-        }
-
-        // Initialize all carousels on page load and start auto-slide
-        document.addEventListener("DOMContentLoaded", function() {
-            let carouselSlides = document.querySelectorAll(".carousel-slide");
-            carouselSlides.forEach((slide, index) => {
-                let carouselContainer = slide.closest(".carousel-container");
-                carouselContainer.id = "carousel-" + index; // Assign unique ID
-                showSlides(slide, 0); // Show initial slide
-
-                // Start auto-slide for each carousel
-                slideInterval[carouselContainer.id] = setInterval(() => showSlides(slide, 1), 3000); // Auto-slide every 3 seconds
-            });
-        });
+        slideInterval = setInterval(() => plusSlides(1), 5000);
     </script>
 </body>
 </html>
