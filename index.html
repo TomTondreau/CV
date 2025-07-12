@@ -129,14 +129,6 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="carousel-container">
-                    <div class="carousel-slide">
-                        <img src="images/IMG_0011.JPG" alt="El Honesto Mike 1">
-                        <img src="images/IMG_0220.jpg" alt="El Honesto Mike 2">
-                    </div>
-                    <button class="prev" onclick="moveSlide(this, -1)">&#10094;</button>
-                    <button class="next" onclick="moveSlide(this, 1)">&#10095;</button>
-                </div>
 
                 <h3>Franklin Burgers:</h3>
                 <ul>
@@ -146,8 +138,10 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="carousel-container">
+                <div class="carousel-container" id="main-carousel">
                     <div class="carousel-slide">
+                        <img src="images/IMG_0011.JPG" alt="El Honesto Mike 1">
+                        <img src="images/IMG_0220.jpg" alt="El Honesto Mike 2">
                         <img src="images/IMG_0228.JPG" alt="Franklin Burgers 1">
                         <img src="images/IMG_0234.JPG" alt="Franklin Burgers 2">
                     </div>
@@ -222,6 +216,7 @@
 
         // Carousel functionality
         let slideIndex = {}; // Stores current slide index for each carousel
+        let slideInterval = {}; // Stores interval for each carousel
 
         function showSlides(carouselElement, n) {
             let slides = carouselElement.getElementsByTagName("img");
@@ -232,7 +227,9 @@
                 slideIndex[carouselId] = 0; // Initialize if not present
             }
 
-            slideIndex[carouselId] += n;
+            if (n !== undefined) { // Only update index if n is provided (manual navigation)
+                slideIndex[carouselId] += n;
+            }
 
             if (slideIndex[carouselId] >= slides.length) {
                 slideIndex[carouselId] = 0;
@@ -250,15 +247,27 @@
         function moveSlide(buttonElement, n) {
             let carouselContainer = buttonElement.closest(".carousel-container");
             let carouselSlide = carouselContainer.querySelector(".carousel-slide");
+            let carouselId = carouselContainer.id;
+
+            // Clear existing interval to prevent conflicts with manual navigation
+            clearInterval(slideInterval[carouselId]);
+
             showSlides(carouselSlide, n);
+
+            // Restart auto-slide after manual navigation
+            slideInterval[carouselId] = setInterval(() => showSlides(carouselSlide, 1), 3000); // Auto-slide every 3 seconds
         }
 
-        // Initialize all carousels on page load
+        // Initialize all carousels on page load and start auto-slide
         document.addEventListener("DOMContentLoaded", function() {
             let carouselSlides = document.querySelectorAll(".carousel-slide");
             carouselSlides.forEach((slide, index) => {
-                slide.closest(".carousel-container").id = "carousel-" + index; // Assign unique ID
-                showSlides(slide, 0);
+                let carouselContainer = slide.closest(".carousel-container");
+                carouselContainer.id = "carousel-" + index; // Assign unique ID
+                showSlides(slide, 0); // Show initial slide
+
+                // Start auto-slide for each carousel
+                slideInterval[carouselContainer.id] = setInterval(() => showSlides(slide, 1), 3000); // Auto-slide every 3 seconds
             });
         });
     </script>
