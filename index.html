@@ -129,6 +129,15 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/IMG_0011.JPG" alt="El Honesto Mike 1">
+                        <img src="images/IMG_0220.jpg" alt="El Honesto Mike 2">
+                    </div>
+                    <button class="prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(this, 1)">&#10095;</button>
+                </div>
+
                 <h3>Franklin Burgers:</h3>
                 <ul>
                     <li>Creación y operación de un food truck de hamburguesas en el Persa Bio Bío, destacando la innovación en el formato y la oferta culinaria.
@@ -137,6 +146,14 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/IMG_0228.JPG" alt="Franklin Burgers 1">
+                        <img src="images/IMG_0234.JPG" alt="Franklin Burgers 2">
+                    </div>
+                    <button class="prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(this, 1)">&#10095;</button>
+                </div>
             </section>
 
             <section class="section">
@@ -178,6 +195,71 @@
         // Mostrar la primera pestaña por defecto al cargar la página
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".tab-button").click();
+        });
+    </script>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Mostrar la primera pestaña por defecto al cargar la página
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-button").click();
+        });
+
+        // Carousel functionality
+        let slideIndex = {}; // Stores current slide index for each carousel
+
+        function showSlides(carouselElement, n) {
+            let slides = carouselElement.getElementsByTagName("img");
+            let carouselContainer = carouselElement.closest(".carousel-container");
+            let carouselId = carouselContainer.id; // Get unique ID for carousel
+
+            if (!(carouselId in slideIndex)) {
+                slideIndex[carouselId] = 0; // Initialize if not present
+            }
+
+            slideIndex[carouselId] += n;
+
+            if (slideIndex[carouselId] >= slides.length) {
+                slideIndex[carouselId] = 0;
+            }
+            if (slideIndex[carouselId] < 0) {
+                slideIndex[carouselId] = slides.length - 1;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex[carouselId]].style.display = "block";
+        }
+
+        function moveSlide(buttonElement, n) {
+            let carouselContainer = buttonElement.closest(".carousel-container");
+            let carouselSlide = carouselContainer.querySelector(".carousel-slide");
+            showSlides(carouselSlide, n);
+        }
+
+        // Initialize all carousels on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            let carouselSlides = document.querySelectorAll(".carousel-slide");
+            carouselSlides.forEach((slide, index) => {
+                slide.closest(".carousel-container").id = "carousel-" + index; // Assign unique ID
+                showSlides(slide, 0);
+            });
         });
     </script>
 </body>
