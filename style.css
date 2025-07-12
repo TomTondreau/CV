@@ -1,195 +1,230 @@
+/* --- GLOBAL & FONTS --- */
 body {
-    font-family: 'Impact', 'Arial Black', sans-serif; /* Fuentes más audaces */
+    background-color: #1a1a1a; /* Hacker Dark Gray */
+    color: #39FF14; /* Neon Green */
+    font-family: 'VT323', monospace; /* Pixel/Terminal Font */
+    font-size: 18px;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #000; /* Negro */
-    color: #eee; /* Gris claro para el texto */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .container {
-    width: 90%; /* Más denso */
-    max-width: 960px; /* Límite para pantallas grandes */
-    margin: 20px auto; /* Margen superior/inferior */
-    background: #333; /* Gris oscuro */
-    padding: 30px; /* Más padding */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    border: 2px solid #555; /* Borde más pronunciado */
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #39FF14;
+    box-shadow: 0 0 20px #39FF14, inset 0 0 15px #39FF14;
+    animation: flicker 0.1s infinite alternate;
 }
 
-header {
-    text-align: center;
-    padding-bottom: 25px;
-    border-bottom: 3px solid #d9534f; /* Naranja/Rojo distintivo */
-    margin-bottom: 30px;
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
 }
 
-header h1 {
-    margin: 0;
-    color: #eee; /* Color claro para el título */
-    font-size: 2.8em; /* Título más grande */
-    text-transform: uppercase; /* Mayúsculas */
-    letter-spacing: 2px; /* Espaciado entre letras */
-}
-
-header p {
-    margin: 10px 0;
-    color: #ccc;
-    font-size: 1.1em;
-}
-
-.tabs {
-    overflow: hidden;
-    border: 1px solid #555;
-    background-color: #222;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 1.1em;
-    color: #eee;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.tab-button:hover {
-    background-color: #555;
-}
-
-.tab-button.active {
-    background-color: #d9534f;
-    color: white;
-}
-
-.tab-content {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #555;
-    border-top: none;
-}
-
-.section {
-    margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px dashed #666; /* Línea punteada más visible */
-}
-
-.section:last-child {
-    border-bottom: none;
-}
-
-h2 {
-    color: #d9534f; /* Naranja/Rojo distintivo */
-    border-bottom: 4px solid #eee; /* Borde claro y grueso */
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-h3 {
-    color: #eee;
-    margin-top: 25px;
-    font-size: 1.4em;
-    border-bottom: 1px solid #666;
-    padding-bottom: 5px;
-}
-
-ul {
-    list-style: square; /* Cuadrados para listas */
-    margin-left: 25px;
-    padding-left: 0;
-}
-
-ul ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-a {
-    color: #007bff; /* Azul para enlaces */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #d9534f; /* Naranja/Rojo al pasar el ratón */
-}
-
-/* Carousel Styles */
-.carousel-container {
-    position: relative;
-    max-width: 100%;
-    margin: 20px auto;
-    overflow: hidden;
-    border: 1px solid #555;
-}
-
-.carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide img {
+/* --- PRELOADER --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 400px; /* Altura fija para todas las imágenes */
-    object-fit: contain; /* Asegura que la imagen se vea completa sin distorsionarse */
-    flex-shrink: 0;
-    display: block;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.8);
+#preloader-text {
+    margin-top: 20px;
+    font-size: 1.5em;
+    animation: blink 1s infinite;
 }
 
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
-.prev:hover, .next:hover {
-    background-color: #d9534f;
-}
-
-/* Thumbnail Styles */
-.thumbnail-container {
+/* --- HEADER & COLLAGE --- */
+.main-header .collage-container {
+    position: relative;
     text-align: center;
-    margin-top: 10px;
+    border-bottom: 3px solid #FF00FF; /* Hot Magenta */
+    padding: 40px 0;
+    background: url('images/grunge_background_placeholder.png'); /* Placeholder for grunge texture */
 }
 
-.thumbnail {
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
-    border: 2px solid #555;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+.main-header h1 {
+    font-family: 'Bangers', cursive; /* Mad Magazine style font */
+    font-size: 6em;
+    color: #FFFF00; /* Electric Yellow */
+    text-shadow: 4px 4px 0 #FF0000; /* Warning Red */
+    margin: 0;
+    animation: glitch 1s linear infinite;
 }
 
-.thumbnail:hover, .thumbnail.active {
-    opacity: 1;
-    border-color: #d9534f;
+.slogan {
+    font-size: 1.5em;
+    color: #FFFFFF; /* Classic White */
+    background: #000;
+    padding: 5px;
+    display: inline-block;
+}
+
+.caricature {
+    max-width: 150px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 3px solid #00FFFF; /* Cyan */
+}
+
+/* --- NAVIGATION --- */
+.main-nav {
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #39FF14;
+    margin-bottom: 40px;
+}
+
+.prompt {
+    color: #FF0000;
+}
+
+.nav-link {
+    color: #39FF14;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: #39FF14;
+    color: #000;
+    animation: glitch-small 0.5s infinite;
+}
+
+/* --- CONTENT SECTIONS --- */
+.content-section {
+    margin-bottom: 60px;
+    padding: 20px;
+    border: 1px dashed #555;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #FF00FF;
+    margin-bottom: 30px;
+}
+
+/* --- CREATIVE DIRECTION (CRT) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+.crt-monitor {
+    background: #2a2a2a;
+    border: 10px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #000;
+}
+
+.crt-screen {
+    background: #000;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    animation: tv-static 3s steps(8, end) infinite alternate;
+}
+
+.project-description h3 {
+    color: #FFFF00;
+    font-family: 'Bangers', cursive;
+}
+
+.project-description p {
+    color: #FFFFFF;
+}
+
+.sarcastic-comment {
+    color: #FF0000;
+    font-style: italic;
+}
+
+/* --- CULINARY WORK (LOG FILE) --- */
+.log-file {
+    background: #000;
+    padding: 20px;
+    border: 1px solid #333;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.code-block {
+    color: #00FFFF; /* Cyan */
+    white-space: pre-wrap;
+}
+
+.image-loader .food-photo {
+    width: 100%;
+    border: 2px solid #39FF14;
+    margin-top: 15px;
+}
+
+/* --- ABOUT ME --- */
+.about-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.about-caricature {
+    max-width: 200px;
+    border: 3px solid #FFFF00;
+}
+
+.bio-text pre {
+    white-space: pre-wrap;
+    color: #FFFFFF;
+}
+
+.skills-terminal {
+    margin-top: 40px;
+    background: #000;
+    padding: 20px;
+}
+
+.skills-title {
+    color: #FF0000;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes glitch {
+    2%,64%{ transform: translate(2px,0) skew(0deg); }
+    4%,60%{ transform: translate(-2px,0) skew(0deg); }
+    62%{ transform: translate(0,0) skew(5deg); }
+}
+
+@keyframes glitch-small {
+    2%,64%{ transform: translate(1px,0); }
+    4%,60%{ transform: translate(-1px,0); }
+}
+
+@keyframes tv-static {
+    from { clip-path: inset(0 0 95% 0); }
+    to { clip-path: inset(0 0 0 0); }
 }
