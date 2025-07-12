@@ -1,0 +1,89 @@
+body {
+    font-family: 'Impact', 'Arial Black', sans-serif; /* Fuentes más audaces */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0e0; /* Off-white */
+    color: #2c2c2c; /* Tono más oscuro */
+}
+
+.container {
+    width: 90%; /* Más denso */
+    max-width: 960px; /* Límite para pantallas grandes */
+    margin: 20px auto; /* Margen superior/inferior */
+    background: #fff;
+    padding: 30px; /* Más padding */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333; /* Borde más pronunciado */
+}
+
+header {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 3px solid #d9534f; /* Naranja/Rojo distintivo */
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 2.8em; /* Título más grande */
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+header p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #ccc; /* Línea punteada */
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: #d9534f; /* Naranja/Rojo distintivo */
+    border-bottom: 4px solid #2c2c2c; /* Borde oscuro y grueso */
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    color: #333;
+    margin-top: 25px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: square; /* Cuadrados para listas */
+    margin-left: 25px;
+    padding-left: 0;
+}
+
+ul ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+a {
+    color: #007bff; /* Azul para enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #d9534f; /* Naranja/Rojo al pasar el ratón */
+}

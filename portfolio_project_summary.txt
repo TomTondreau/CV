@@ -1,0 +1,18 @@
+## Resumen del Proyecto: Portafolio Web de Tom Tondreau
+
+**Fecha de la última actualización:** 11 de julio de 2025
+
+**Objetivo:** Crear un sitio web de portafolio simple utilizando GitHub Pages, mostrando el currículum de Tom Tondreau y aplicando un estilo gráfico inspirado en draplin.com.
+
+**Acciones Realizadas hasta ahora:**
+1.  **Extracción del Currículum:** Se obtuvo el contenido del currículum de Tom Tondreau desde el archivo `Tom_Tondreau_Resume.txt` en el escritorio.
+2.  **Creación de Archivos Base:** Se crearon los archivos `index.html` (estructura del portafolio con el contenido del currículum) y `style.css` (estilos CSS) dentro de la carpeta `/Users/Tom/Desktop/portfolio/`.
+3.  **Aplicación de Estilo Gráfico:** Se modificó `style.css` para incorporar un estilo visual audaz, retro y americano, inspirado en `draplin.com`, incluyendo cambios en fuentes, colores y diseño general.
+4.  **Instrucciones para GitHub Pages:** Se proporcionaron instrucciones detalladas para crear un repositorio en GitHub, subir los archivos y activar GitHub Pages para publicar el portafolio.
+
+**Próximos Pasos (Pendientes):**
+1.  **Confirmar Publicación en GitHub Pages:** Verificar que el portafolio se haya publicado correctamente en la URL de GitHub Pages.
+2.  **Revisión y Ajustes:** Revisar el portafolio en línea para posibles ajustes de contenido o diseño.
+3.  **Personalización de Contacto:** Asegurarse de que los marcadores de posición de contacto en `index.html` (`[Tu Número de Teléfono]`, `[Tu Correo Electrónico]`, `[Tu Perfil de LinkedIn (si tienes)]`) sean reemplazados por la información real de Tom.
+4.  **Añadir más secciones/contenido (opcional):** Si se desea, añadir más secciones al portafolio (ej. galería de proyectos visuales, testimonios, etc.).
+5.  **Optimización (opcional):** Mejorar la responsividad para diferentes dispositivos, optimizar imágenes, etc.
