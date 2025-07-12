@@ -1,130 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOM TONDREAU - KERNEL PANIC</title>
+    <title>Tom Tondreau - Creative & Culinary</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="preloader">
-        <pre id="ascii-art">
-        </pre>
-        <div id="preloader-text">> CONNECTING TO TONDREAU.SERVER...</div>
-    </div>
-
-    <div class="container" id="main-content" style="display: none;">
+    <div class="main-container">
         <header class="main-header">
-            <!-- This will be a chaotic collage styled with CSS -->
-            <div class="collage-container">
-                <!-- Placeholder for caricature -->
-                <img src="images/caricature_placeholder.png" alt="Tom Tondreau Caricature" class="caricature">
-                <h1>TOM TONDREAU</h1>
-                <p class="slogan">&gt; WHAT, ME STRATEGIZE? // A CULINARY &amp; CREATIVE MELTDOWN</p>
-            </div>
+            <div class="logo">TOM TONDREAU</div>
+            <nav class="main-nav">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+            </nav>
         </header>
 
-        <nav class="main-nav">
-            <span class="prompt">[tom@tondreau ~]$</span> <a href="#creative-direction" class="nav-link">ls /creative_work</a>
-            <span class="prompt">[tom@tondreau ~]$</span> <a href="#culinary-work" class="nav-link">cat /kitchen_log</a>
-            <span class="prompt">[tom@tondreau ~]$</span> <a href="#about-me" class="nav-link">whois tom</a>
-        </nav>
+        <section class="hero-section">
+            <img src="images/964bf54f-7e60-481c-8173-5629ab773557.jpg" alt="Tom Tondreau serving a burger" class="hero-image">
+            <div class="hero-text">
+                <h1>IDEAS &amp; SABOR</h1>
+                <p>Director Creativo & Chef. Construyendo marcas y menús con la misma dosis de caos y estrategia.</p>
+            </div>
+        </section>
 
-        <main>
-            <section id="creative-direction" class="content-section">
-                <h2 class="section-title">&gt; EXECUTING /bin/portfolio_display --filter=creative</h2>
-                <div class="project-grid">
-                    <!-- Project 1 -->
-                    <div class="crt-monitor">
-                        <div class="crt-screen">
-                            <div class="project-thumbnail">
-                                <!-- Placeholder for project image -->
-                                <img src="images/worchips_placeholder.png" alt="Worchips Cookies Project">
-                            </div>
-                            <div class="project-description">
-                                <h3>PROJECT: WORCHIPS COOKIES</h3>
-                                <p><strong>MISSION:</strong> Name, brand, and strategize for a cookie company. They had the dough, I brought the sauce (the *branding* sauce, that is).</p>
-                                <p><strong>OUTCOME:</strong> A brand so tasty, their sales went up faster than my cholesterol. We gave them a name, a logo, and a battle plan. They handled the baking, proving that my genius is, sadly, not edible.</p>
-                                <p class="sarcastic-comment">*Disclaimer: No actual grandmothers were consulted for these "homemade" style cookies.*</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add more projects here in the same format -->
+        <main id="work" class="work-grid">
+            <!-- Culinary Work -->
+            <div class="work-item">
+                <img src="images/IMG_0220.jpg" alt="El Honesto Mike Burger">
+                <div class="work-caption">
+                    <h3>El Honesto Mike</h3>
+                    <p>Lideré la concepción y el lanzamiento, desde el menú hasta el branding. Mencionada entre las 50 mejores hamburguesas del mundo. Nada mal.</p>
                 </div>
-            </section>
-
-            <section id="culinary-work" class="content-section">
-                <h2 class="section-title">&gt; cat /kitchen_log</h2>
-                <div class="log-file">
-                    <div class="log-entry">
-                        <pre class="code-block">
-// PROTOCOL: HONESTO_MIKE_BURGER.v2
-// DEV_COMMENT: They said it couldn't be done. They were wrong.
-
-#DEFINE INGREDIENT_BUN "potato_roll_soft.dat"
-#DEFINE INGREDIENT_PATTY "smashed_beef_blend_secret.dat"
-#DEFINE INGREDIENT_SAUCE "mike_sauce_alpha.dat"
-
-FUNCTION launch_burger() {
-  ASSEMBLE(INGREDIENT_BUN, INGREDIENT_PATTY, INGREDIENT_SAUCE);
-  APPLY_HEAT(medium_high);
-  SERVE_WITH("no_nonsense_attitude.cfg");
-  RETURN "SUCCESS";
-}
-
-// STATUS: LEGENDARY
-// GLOBAL RANKING: TOP_50_WORLDWIDE.LOG
-                        </pre>
-                        <div class="image-loader">
-                            <pre class="ascii-preloader">> LOADING 'HONESTO_MIKE_BURGER.JPG'...
-[▓▓▓▓▓▓░░░░░░░░░░░░░░] 30%</pre>
-                            <!-- Placeholder for food image -->
-                            <img src="images/honesto_mike_placeholder.jpg" alt="El Honesto Mike Burger" class="food-photo" style="display:none;">
-                        </div>
-                    </div>
+            </div>
+            <div class="work-item">
+                <img src="images/IMG_0228.JPG" alt="Franklin Burgers">
+                <div class="work-caption">
+                    <h3>Franklin Burgers</h3>
+                    <p>Mi primer emprendimiento. Un food truck en el Persa Bio Bío que demostró que se puede hacer magia en un par de metros cuadrados.</p>
                 </div>
-            </section>
-
-            <section id="about-me" class="content-section">
-                <h2 class="section-title">&gt; whois tom</h2>
-                <div class="about-container">
-                    <!-- Placeholder for caricature -->
-                    <img src="images/about_me_caricature.png" alt="About Me Caricature" class="about-caricature">
-                    <div class="bio-text">
-                        <pre>
-&gt; cat /etc/passwd | grep tom
-
-LOGIN: Tom Tondreau
-SHELL: /bin/chaos
-GROUPS: creative_directors, chefs, former_ad_agency_survivors
-
-BIO: Forged in the fiery pits of advertising and tempered in the high-pressure environment of professional kitchens. I've spent years building brands, campaigns, and menus. I believe that creativity should be loud, messy, and honest. I've won some awards I can't find anymore and have been praised by people I've never met. My two main food groups are butter and bright ideas. Currently accepting missions that involve a healthy dose of risk and a complete lack of boring meetings.
-                        </pre>
-                    </div>
+            </div>
+            <div class="work-item">
+                <img src="images/20230726_163119.jpeg" alt="Another food creation">
+                <div class="work-caption">
+                    <h3>Pop-Ups & Asesorías</h3>
+                    <p>Diseñando experiencias gastronómicas temporales en Chile y México. El sabor no necesita una dirección fija.</p>
                 </div>
-                <div class="skills-terminal">
-                    <h3 class="skills-title">&gt; system.load_skills()</h3>
-                    <pre>
-&gt; LOAD_SKILL: Creative_Direction.dll
-&gt; [████████████████----] 90% - OPTIMIZED
+            </div>
 
-&gt; LOAD_SKILL: Culinary_Innovation.jar
-&gt; [██████████████████--] 95% - DANGEROUSLY EFFECTIVE
-
-&gt; LOAD_SKILL: Sarcasm_Matrix.so
-&gt; [████████████████████] 100% - FATAL_ERROR_IF_DISABLED
-
-&gt; LOAD_SKILL: Client_Patience.vxd
-&gt; [█████---------------] 25% - WARNING: LOW MEMORY
-                    </pre>
+            <!-- Creative Direction -->
+            <div class="work-item">
+                <img src="images/IMG_0235.JPG" alt="Creative project example">
+                <div class="work-caption">
+                    <h3>Dirección Creativa</h3>
+                    <p>He trabajado con agencias como Havas y JWT, y fundé la mía propia. He ganado premios que probablemente estén acumulando polvo en alguna caja.</p>
                 </div>
-            </section>
+            </div>
+             <div class="work-item">
+                <img src="images/78242e61-6413-400c-8334-18e6f5200777.jpg" alt="Another creative project">
+                <div class="work-caption">
+                    <h3>Branding & Naming</h3>
+                    <p>Desde galletas (Worchips) hasta estudios de serigrafía (Mokingskills). Si necesita un nombre y una cara, lo hacemos.</p>
+                </div>
+            </div>
         </main>
-    </div>
 
+        <section id="about" class="about-section">
+            <h2>SOBRE MÍ</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Forjado en la publicidad y templado en la cocina. Creo que las mejores ideas, como la mejor comida, son honestas, audaces y se sirven sin rodeos. Mi carrera es una mezcla de riesgo, estrategia y una cantidad probablemente insalubre de mantequilla.</p>
+                    <p>He sido jurado en festivales, he liderado equipos creativos y he volteado hamburguesas. Y sí, Dexter Holland de The Offspring vino a mi local. Probablemente el peak de mi carrera.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/IMG_0011.JPG" alt="Tom Tondreau">
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <p>Tom Tondreau &copy; 2025</p>
+            <p><a href="https://www.instagram.com/tomtondreau/" target="_blank">Instagram</a> | tondreau@gmail.com | <a href="https://bio.link/tomt" target="_blank">Biolink</a></p>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
