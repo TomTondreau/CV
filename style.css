@@ -201,3 +201,57 @@ body {
 .main-footer a:hover {
     color: var(--accent-color);
 }
+
+/* --- EXPANDABLE CONTENT --- */
+.expanded-content {
+    display: none; /* Hidden by default */
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    padding: 40px;
+    margin: 40px 0;
+}
+
+.expanded-content h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 3em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.expanded-content h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.expanded-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.expanded-content li {
+    margin-bottom: 15px;
+}
+
+.expanded-content p {
+    margin-bottom: 10px;
+}
+
+.close-expanded-content {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.close-expanded-content:hover {
+    background-color: #E64A19; /* A slightly darker orange */
+}
