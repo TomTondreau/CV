@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Tom Tondreau</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo"><a href="index.html">TOM TONDREAU</a></div>
+            <nav class="main-nav">
+                <a href="work.html" class="active">Work</a>
+                <a href="about.html">About</a>
+            </nav>
+        </header>
+
+        <main class="work-page-main">
+            <h1>Mis Proyectos</h1>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="culinary">Culinario</button>
+                <button class="filter-btn" data-filter="creative">Dirección Creativa</button>
+                <button class="filter-btn" data-filter="digital">Innovación Digital</button>
+            </div>
+
+            <div class="work-grid" id="work-gallery">
+                <!-- Culinary Work -->
+                <div class="work-item" data-category="culinary">
+                    <a href="project-honesto-mike.html">
+                        <img src="images/HM1.jpg" alt="El Honesto Mike Burger">
+                        <div class="work-caption">
+                            <h3>El Honesto Mike</h3>
+                            <p>Lideré la concepción y el lanzamiento, desde el menú hasta el branding.</p>
+                            <span class="link-indicator">Ver Proyecto →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="work-item" data-category="culinary">
+                    <a href="project-franklin-burgers.html">
+                        <img src="images/franklin_burgers.png" alt="Franklin Burgers">
+                        <div class="work-caption">
+                            <h3>Franklin Burgers</h3>
+                            <p>Mi primer emprendimiento. Un food truck en el Persa Bio Bío.</p>
+                            <span class="link-indicator">Ver Proyecto →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="work-item" data-category="culinary">
+                    <a href="project-popups-asesorias.html">
+                        <img src="images/PA1.jpg" alt="Pop-ups y Asesorías">
+                        <div class="work-caption">
+                            <h3>Pop-Ups & Asesorías</h3>
+                            <p>Diseñando experiencias gastronómicas temporales en Chile y México.</p>
+                            <span class="link-indicator">Ver Proyecto →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Creative Direction -->
+                <div class="work-item" data-category="creative">
+                    <a href="project-creative-direction.html">
+                        <img src="images/CD1.png" alt="Creative project example">
+                        <div class="work-caption">
+                            <h3>Director Creativo</h3>
+                            <p>Trabajos para agencias como Havas y JWT, y fundador de la mía propia.</p>
+                            <span class="link-indicator">Ver Proyecto →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Digital Innovation -->
+                <div class="work-item" data-category="digital">
+                    <a href="project-ai-creations.html">
+                        <img src="images/ai_creations_hero.png" alt="AI Creations example">
+                        <div class="work-caption">
+                            <h3>Laboratorio de Innovación Digital</h3>
+                            <p>Explorando arte y tecnología con IA generativa, juegos y apps.</p>
+                            <span class="link-indicator">Ver Proyecto →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>Tom Tondreau &copy; 2025</p>
+            <p><a href="https://www.instagram.com/tomtondreau/" target="_blank">Instagram</a> | tondreau@gmail.com | <a href="https://bio.link/tomt" target="_blank">Biolink</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
