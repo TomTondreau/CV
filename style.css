@@ -293,3 +293,91 @@ body {
 .main-footer a:hover {
     color: var(--accent-color);
 }
+
+/* --- NEW SINGLE-PAGE SCROLL STYLES --- */
+
+.work-section-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Space between projects */
+    margin: 60px 0;
+}
+
+.project-showcase {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 30px;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Two-column layout for wider screens */
+@media (min-width: 768px) {
+    .project-showcase {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Alternate layout for every other project */
+    .project-showcase:nth-child(even) {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .project-showcase:nth-child(even) .project-image {
+        order: 2;
+    }
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--border-color);
+}
+
+.project-info h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    margin: 0 0 15px;
+}
+
+.project-info p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+    margin-top: 60px;
+}
+
+.contact-section h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.2rem;
+}
+
+.contact-section a {
+    color: var(--accent-color);
+    font-weight: bold;
+}
