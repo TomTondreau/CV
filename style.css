@@ -1,19 +1,20 @@
 /* --- GLOBAL & FONTS --- */
 :root {
-    --bg-color: #F5F0E6; /* Bone/Cream */
-    --text-color: #1a1a1a; /* Black */
+    --bg-color: #1a1a1a; /* Black */
+    --text-color: #F5F0E6; /* Bone/Cream */
     --accent-color: #FF5733; /* Vibrant Orange */
-    --border-color: #1a1a1a;
+    --border-color: var(--accent-color); /* Orange borders */
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 18px;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    text-transform: uppercase; /* Punk vibe */
 }
 
 .main-container {
@@ -32,16 +33,16 @@ body {
 }
 
 .logo a {
-    font-family: 'Anton', sans-serif;
-    font-size: 2.5em;
+    font-family: 'VT323', monospace;
+    font-size: 3.5em;
     font-weight: bold;
     text-decoration: none;
     color: var(--text-color);
 }
 
 .main-nav a {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.5em;
+    font-family: 'VT323', monospace;
+    font-size: 2em;
     color: var(--text-color);
     text-decoration: none;
     margin-left: 30px;
@@ -59,14 +60,15 @@ body {
 }
 
 .hero-text p {
-    font-size: 1.8rem;
-    font-weight: bold;
-    max-width: 700px;
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
+    font-weight: normal;
+    max-width: 800px;
     margin: 0 auto;
     line-height: 1.4;
 }
 
-/* --- WORK GRID --- */
+/* --- WORK GRID (Legacy) --- */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -105,147 +107,24 @@ body {
 }
 
 .work-caption h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.8em;
+    font-family: 'VT323', monospace;
+    font-size: 2.5em;
     margin: 0 0 10px;
 }
 
-.link-indicator {
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-.work-item-view-all {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.btn-view-all {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--accent-color);
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    transition: all 0.3s;
-}
-
-.btn-view-all:hover {
-    background: var(--text-color);
-    color: var(--bg-color);
-}
-
-/* --- WORK PAGE --- */
-.work-page-main h1 {
-    text-align: center;
-    font-family: 'Anton', sans-serif;
-    font-size: 4em;
-    margin-bottom: 20px;
-}
-
-.filter-buttons {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.filter-btn {
-    background: none;
-    border: 2px solid var(--border-color);
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    font-family: 'Anton', sans-serif;
-    font-size: 1.2em;
-    transition: all 0.3s;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background: var(--accent-color);
-    color: #fff;
-    border-color: var(--accent-color);
-}
-
-/* --- PROJECT DETAIL PAGE --- */
-.project-detail-main {
-    padding: 40px 0;
-}
-
-.project-detail-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
+/* --- PROJECT DETAIL PAGE (Legacy) --- */
 .project-detail-header h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: 4.5rem;
-    margin: 0;
-    line-height: 1.1;
+    font-family: 'VT323', monospace;
+    font-size: 5.5rem;
 }
-
-.project-subtitle {
-    font-size: 1.3rem;
-    color: #555;
-    max-width: 700px;
-    margin: 15px auto 0;
-}
-
-.project-detail-content {
-    margin-bottom: 40px;
-}
-
 .project-detail-text h2, .project-detail-text h3, .project-detail-text h4, .project-detail-text h5 {
-    font-family: 'Anton', sans-serif;
+    font-family: 'VT323', monospace;
 }
 
-.project-detail-text h2 {
-    font-size: 2.5em;
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.project-detail-gallery {
-    margin-top: 40px;
-}
-
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.gallery-thumbnail {
-    width: 100%;
-    height: auto;
-    border: 2px solid var(--border-color);
-}
-
-.video-gallery .video-item {
-    margin-bottom: 30px;
-}
-
-.back-to-work {
-    display: inline-block;
-    margin-top: 40px;
-    font-family: 'Anton', sans-serif;
-    font-size: 1.5em;
-    text-decoration: none;
-    color: var(--accent-color);
-}
-
-/* --- ABOUT PAGE --- */
-.about-page-main .about-section {
-    padding: 40px 0;
-}
-
-.about-section h2 {
-    font-family: 'Anton', sans-serif;
-    font-size: 4em;
+/* --- ABOUT & CONTACT SECTIONS --- */
+.about-section h2, .contact-section h2 {
+    font-family: 'VT323', monospace;
+    font-size: 5em;
     display: inline-block;
     border-bottom: 4px solid var(--accent-color);
     padding-bottom: 10px;
@@ -315,14 +194,10 @@ body {
 /* Two-column layout for wider screens */
 @media (min-width: 768px) {
     .project-showcase {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 3fr; /* 40/60 split */
+        gap: 50px; /* More breathing room */
     }
 
-    /* Alternate layout for every other project */
-    .project-showcase:nth-child(even) {
-        grid-template-columns: 1fr 1fr;
-    }
-    
     .project-showcase:nth-child(even) .project-image {
         order: 2;
     }
@@ -330,13 +205,16 @@ body {
 
 .project-image img {
     width: 100%;
+    max-width: 500px; /* Prevents image from becoming huge */
     height: auto;
     border: 2px solid var(--border-color);
+    display: block;
+    margin: 0 auto; /* Center the image if the column is wider */
 }
 
 .project-info h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 2.5em;
+    font-family: 'VT323', monospace;
+    font-size: 3.5em;
     margin: 0 0 15px;
 }
 
@@ -357,18 +235,41 @@ body {
     text-decoration: underline;
 }
 
+/* Logo container styles */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    min-height: 300px;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    background-color: #000;
+}
+.logo-container-title {
+    font-family: 'VT323', monospace;
+    color: var(--accent-color);
+    font-size: 1.5em;
+}
+.agency-logo {
+    max-width: 150px;
+    filter: grayscale(100%) contrast(3);
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+.agency-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
 /* --- CONTACT SECTION --- */
 .contact-section {
     padding: 80px 0;
     text-align: center;
     border-top: 2px solid var(--border-color);
     margin-top: 60px;
-}
-
-.contact-section h2 {
-    font-family: 'Anton', sans-serif;
-    font-size: 4em;
-    margin-bottom: 20px;
 }
 
 .contact-section p {
